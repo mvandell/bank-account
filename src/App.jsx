@@ -1,35 +1,21 @@
-import { useState } from 'react'
-import './App.css'
-import store from './redux/store';
-import { Provider } from 'react-redux';
+import TransactionHistory from "./components/TransactionHistory";
+import Transactions from "./components/Transactions";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
-function App() {
-  const [count, setCount] = useState(0)
+import "./app.css";
 
+// TODO: Import the Redux store and provide it to this component using <Provider>.
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Provider store={store}>
+      <main>
+        <h1>Bank Account</h1>
+        <Transactions />
+        <TransactionHistory />
+      </main>
+    </Provider>
+  );
+};
 
-export default App
+export default App;
