@@ -1,5 +1,5 @@
 //import "./transactionHistory.scss";
-import { UseSelector, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 /** Displays a table row with transaction information  */
 const TransactionRow = ({ transaction: { type, amount, balance } }) => (
